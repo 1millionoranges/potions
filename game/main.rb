@@ -29,8 +29,8 @@ set width: 1800
 b = Battle.new(pos: Vector.new(200,200))
 
 Screen.add_asset(b)
-g1 = Guy.new(pos: Vector.new(20, 10))
-g2 = Guy.new(pos: Vector.new(200,0))
+g1 = Guy.new(pos: Vector.new(20, 10), armor: 2)
+g2 = Guy.new(pos: Vector.new(200,0), armor: 3)
 g1.set_target(g2)
 g2.set_target(g1)
 b.add_fighter(g1)

@@ -1,9 +1,10 @@
 class Pet
     attr_reader :target
+    attr_reader :pos
     def initialize(args={})
         @attack_delay = args[:attack_delay] || 30
-        @attack_damage = args[:attack_damage] ||  3
-        @health = args[:health] || 50
+        @attack_damage = args[:attack_damage] ||  7
+        @health = args[:health] || 300
         @armor = args[:armor] || 0
         @pos = args[:pos] || Vector.new(0,0)
         @dimensions = args[:dimensions] || Vector.new(200,200)

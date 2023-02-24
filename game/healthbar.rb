@@ -5,7 +5,7 @@ class Healthbar
         @current_health = args[:current_health] || @max_health
         @width = args[:width] || 200
         draw_init
-        @back_rec_pos = Vector.new(-(@max_health / 2), -15)
+        @back_rec_pos = Vector.new(0, -50)
         @front_rec_pos = @back_rec_pos + Vector.new(5,5)
     end
     def draw_init
