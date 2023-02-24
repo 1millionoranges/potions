@@ -12,13 +12,16 @@ class Mouse
         @@holding_guy = nil
     end
     def self.draw_frame
-        @pos = Vector.new(Window.mouse_x, Window.mouse_y)
+        @pos = Vector.new(Window.mouse_x - 100, Window.mouse_y - 100)
         if @@holding_guy
             @@holding_guy.draw_frame do |image, pos|
                 image.x = (pos + @pos).x
                 image.y = (pos + @pos).y
             end
         end
+    end
+    def self.is_holding
+        return @@holding_guy
     end
 
     def self.click_power(g)

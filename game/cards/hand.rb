@@ -19,16 +19,21 @@ class Hand
         return true
     end
     def get_clicked(event)
-
-        if Mouse.pick_up(@cards[0])
-            @cards.shift
+        if Mouse.is_holding
+            add_card(Mouse.is_holding)
+            Mouse.put_down
+        else
+            event.x / @cards.size
+            if Mouse.pick_up(@cards[0])
+                @cards.shift
+            end
         end
-        p "hand clicked"
     end
     def draw_init
         @background_rectangle = Rectangle.new(width: @dimensions.x, height: @dimensions.y, color: 'white')
     end
     def draw_frame
+        if @cards.size > 0
         card_spacing = @dimensions.x / (@cards.size)
         i = 0
         yield(@background_rectangle, @pos)
@@ -38,5 +43,6 @@ class Hand
             end
             i+=1
         end
+    end
     end
 end
