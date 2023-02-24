@@ -4,13 +4,18 @@ require './guy.rb'
 require './screen.rb'
 require './physics.rb'
 require './battle.rb'
-
+require './event_handler.rb'
+require './click_listener.rb'
 keys_pressed = []
 on :key_down do |event|
     keys_pressed << event.key
     if event.key == "escape"
         close
     end
+end
+
+on :mouse_down do |event|
+    EventHandler.click_event(event)
 end
 
 Screen.set_params(height: 1000, width: 1800)
