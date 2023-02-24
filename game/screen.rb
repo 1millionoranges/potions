@@ -31,4 +31,11 @@ class Screen
     def self.remove_asset(asset)
         @@assets.delete(asset)
     end
+    def self.init_children
+        @@assets.each do |a|
+            a.init_children(@pos || Vector.new(0,0))
+
+        end
+    end
 end
+
