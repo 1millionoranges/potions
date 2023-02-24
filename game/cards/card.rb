@@ -9,4 +9,15 @@ class Card
     def draw_frame
         yield(@image, Vector.new(0,0))
     end
+
+    def get_picked_up
+        Mouse.pick_up(self)
+    end
+    def get_dropped
+        Mouse.put_down(self)
+    end
+    
+    def power(guy)
+        guy.attack_delay /= 2
+    end
 end

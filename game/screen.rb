@@ -24,6 +24,7 @@ class Screen
                 image.y = new_pos.y
             end
         end
+        Mouse.draw_frame
     end
     def self.add_asset(asset)
         @@assets << asset

@@ -5,6 +5,9 @@ class Hand
         @cards = []
         @max_card_number = 5
         draw_init
+
+        clicked_event = lambda { |event| get_clicked(event) }
+        ClickListener.new(@pos, @dimensions, clicked_event)
     end
 
     def add_card(card)
@@ -15,7 +18,13 @@ class Hand
         end
         return true
     end
+    def get_clicked(event)
 
+        if Mouse.pick_up(@cards[0])
+            @cards.shift
+        end
+        p "hand clicked"
+    end
     def draw_init
         @background_rectangle = Rectangle.new(width: @dimensions.x, height: @dimensions.y, color: 'white')
     end

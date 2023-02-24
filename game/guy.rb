@@ -1,4 +1,6 @@
 class Guy < Pet
+    attr_accessor :attack_delay
+    attr_accessor :attack_damage
     def initialize(args={})
         super(args)
 
@@ -26,10 +28,10 @@ class Guy < Pet
         @image.play animation: :stand, loop: true
     end
     def add_boost_listener
-        @boost_lambda = lambda { boost_speed }
+        @boost_lambda = lambda { |a| boost_speed }
         ClickListener.new(@absolute_pos, @dimensions, @boost_lambda)
     end
     def boost_speed
-        @attack_delay /= 2
+        Mouse.click_power(self)
     end
 end

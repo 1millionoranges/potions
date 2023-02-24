@@ -9,7 +9,8 @@ require './click_listener.rb'
 require './healthbar.rb'
 require './cards/hand.rb'
 require './cards/card.rb'
-
+require './mouse.rb'
+require './cards/damagecard.rb'
 keys_pressed = []
 on :key_down do |event|
     keys_pressed << event.key
@@ -42,10 +43,12 @@ g2.add_boost_listener
 h = Hand.new(pos: Vector.new(30,500))
 c = Card.new()
 c2 = Card.new
-c3 = Card.new
-h.add_card(c)
-h.add_card(c2)
+c3 = DamageCard.new
+c4 = Card.new
 h.add_card(c3)
+h.add_card(c2)
+h.add_card(c)
+h.add_card(c4)
 Screen.add_asset(h)
 
 update do

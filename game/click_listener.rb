@@ -13,10 +13,10 @@ class ClickListener
         top = @pos.y
         bot = bot_right.y
         if event.x > left && event.x < right && event.y > top && event.y < bot
-            execute
+            execute(event)
         end
     end
-    def execute
-        @funct.call
+    def execute(event)
+        @funct.call(event)
     end
 end
